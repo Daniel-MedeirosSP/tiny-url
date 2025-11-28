@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.5.7</version>
+		<version>3.5.8</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.tiny-url</groupId>
-	<artifactId>tu</artifactId>
+	<groupId>com.tyni</groupId>
+	<artifactId>url</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>tu</name>
-	<description>Tiny URL is the fastest and easiest way to shorten long links. Instantly turn any lengthy web address into a neat, manageable, and shareable tiny link. Perfect for social media, emails, and anywhere space is limited!</description>
+	<name>url</name>
+	<description>Tyni url Constructor</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -27,9 +27,13 @@
 		<url/>
 	</scm>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
@@ -40,12 +44,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
@@ -55,6 +53,10 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.6.0</version> </dependency>
 	</dependencies>
 
 	<build>
