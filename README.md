@@ -34,3 +34,6 @@ Para rodar o projeto, configure as seguintes variáveis de ambiente:
 ### Index.html
 Atualizar o endereço de domínio para voltar ao root
 **http://localhost:8081/tu/**
+
+### Gerando Imagem
+**podman build -t tiny-url-app .**
