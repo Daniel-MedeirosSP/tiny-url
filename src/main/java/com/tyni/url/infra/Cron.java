@@ -15,6 +15,6 @@ public class Cron {
 
     @Scheduled(fixedRate = 3600000) // Executa a cada 1 hora
     public void removeExpiredUrls() {
-        serviceRepository.deleteByExpiredTimeBefore(new Date());
+        serviceRepository.deleteByExpiredAtBefore(new Date());
     }
 }

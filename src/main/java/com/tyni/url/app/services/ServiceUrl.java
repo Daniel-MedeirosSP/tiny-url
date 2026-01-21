@@ -22,18 +22,25 @@ public class ServiceUrl {
     @Value("${app.char}")
     private String hashchar;
 
-    @Value("${app.tamanho}")
+    @Value("${app.size}")
     private Integer tamanho;
 
+    @Value("${app.baseUrl}")
+    private String baseUrl;
+
     @Autowired
-    private ServiceRepository serviceRepository;
+    private final ServiceRepository serviceRepository;
+
+    public ServiceUrl(ServiceRepository serviceRepository) {
+        this.serviceRepository = serviceRepository;
+    }
 
     public UrlDto createShortUrl(UrlTo urlTo) {
         var urlDomain = new UrlDomain(null, urlTo.getOriginalUrl(), GenerateNewUrl(), new Date(), TimeExpired());
         urlDomain = serviceRepository.save(urlDomain);
 
 
-        return new UrlDto(urlDomain.getTinyUrl(), urlDomain.getExpiredAt().getTime());
+        return new UrlDto(baseUrl + urlDomain.getTinyUrl(), urlDomain.getExpiredAt().getTime());
     }
 
     public Date TimeExpired() {

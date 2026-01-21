@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiny URL | Encurtador de Links</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<div class="main-container">
+    <div class="content-wrapper text-center">
+
+        <header class="mb-5">
+            <a href="http://localhost:8081/tu/">
+            <h1 class="logo-text">Tiny<span>URL</span></h1>
+            <p class="subtitle" th:text="${mensagem != null ? mensagem : 'Painel de Controle do Projeto'}">Painel de Controle do Projeto</p>
+            </a>
+        </header>
+
+        <main class="glass-card">
+            <h2 class="card-title text-start mb-4">Paste URL</h2>
+
+            <form th:action="@{/shorten}" method="POST">
+                <div class="custom-input-group">
+                    <input type="url"
+                           name="originalUrl"
+                           class="form-control"
+                           placeholder="https://anydomain.com/"
+                           title="Necessário incluir o http:// ou https:// para a url ser completa"
+                           required>
+                    <button class="btn btn-encurtar" type="submit">Encurtar</button>
+                </div>
+
+                <div class="text-start mt-2">
+                    <small class="user-helper-text">
+                        <i class="fa-solid fa-circle-info"></i>
+                        Certifique-se de incluir o <strong>http://</strong> ou <strong>https://</strong>
+                    </small>
+                </div>
+            </form>
+
+            <div th:if="${urlGerada}" class="result-container text-start mt-4">
+                <label class="form-label d-block text-dark fw-bold mb-2">Sua URL encurtada:</label>
+                <div class="generated-box p-3 rounded shadow-sm bg-white border border-2 border-orange d-flex justify-content-between align-items-center">
+                    <a th:href="${urlGerada}"
+                       th:text="${urlGerada}"
+                       target="_blank"
+                       class="url-result-text">
+                        http://tinyurl.com/xyz123
+                    </a>
+                    <i class="fa-solid fa-link text-muted"></i>
+                </div>
+            </div>
+
+            <div class="file-link-container text-start mt-4 border-top pt-3" th:if="${dataCriacao}">
+                <span class="file-link" style="cursor: default; text-decoration: none;">
+                    <i class="fa-regular fa-clock"></i>
+                    Criado em: <span th:text="${dataCriacao}">19/01/2026 21:00</span>
+                </span>
+            </div>
+        </main>
+
+        <footer class="footer mt-5">
+            <p>© 2026 Tiny URL Project - Design by Nick</p>
+        </footer>
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

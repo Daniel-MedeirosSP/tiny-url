@@ -11,5 +11,5 @@ public interface ServiceRepository extends MongoRepository<UrlDomain, String> {
 
     UrlDomain findFirstByTinyUrl(String tinyUrl);
     
-    void deleteByExpiredTimeBefore(Date date);
+    void deleteByExpiredAtBefore(Date date);
 }
