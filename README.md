@@ -50,3 +50,12 @@ podman build -t tinyurl_app:latest .**
 
 **4- Criar o Container da aplicação dentro do POD:
 podman run -d --name tinyurl_container --pod tinyurl_infra -e MONGODB_USER -e MONGODB_PASSWORD tinyurl_app:latest
+
+## 📞 Contato
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/daniel-medeiros-9b853544/)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Daniel-MedeirosSP/tiny-url)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:seu-email@exemplo.com)
+
+**Desenvolvido por:** Daniel Medeiros  
+**Email:** daniel.medeirossp@gmail.com
