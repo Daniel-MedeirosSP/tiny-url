@@ -49,7 +49,7 @@ podman run -d --name mongodb_tiny --pod tinyurl_infra -e MONGO_INITDB_ROOT_USERN
 podman build -t tinyurl_app:latest .**
 
 **4- Criar o Container da aplicação dentro do POD:
-podman run -d --name tinyurl_container --pod tinyurl_infra -e MONGODB_USER -e MONGODB_PASSWORD tinyurl_app:latest
+podman run -d --name tinyurl_container --pod tinyurl_infra -e MONGODB_USER -e MONGODB_PASSWORD tinyurl_app:latest**
 
 ## 📞 Contato
 
