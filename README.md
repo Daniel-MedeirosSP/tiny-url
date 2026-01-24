@@ -37,3 +37,16 @@ Atualizar o endereço de domínio para voltar ao root
 
 ### Gerando Imagem
 **podman build -t tiny-url-app .**
+
+### Passos para criar um POD com banco de dados e aplicação para rodar local em container
+**1- podman pod create --name tinyurl_infra -p 8081:8081 -p 27017:27017**
+
+**2- Criar o Container do Mongo dentro deste POD: 
+podman run -d --name mongodb_tiny --pod tinyurl_infra -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=password docker.io/library/mongo:latest**
+
+
+**3- Criar o Imagem do Tiny-Url:
+podman build -t tinyurl_app:latest .**
+
+**4- Criar o Container da aplicação dentro do POD:
+podman run -d --name tinyurl_container --pod tinyurl_infra -e MONGODB_USER -e MONGODB_PASSWORD tinyurl_app:latest
